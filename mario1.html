@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmulatorJS Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Optional: Background color for the page */
+        }
+        #emulator-container {
+            width: 640px; /* Adjust the width as needed */
+            height: 480px; /* Adjust the height as needed */
+            position: relative;
+        }
+        canvas {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="emulator-container"></div>
+
+    <script src="/Users/nando/Documents/data/loader.js"></script>
+    <script>
+        // Function to load the ROM
+        function loadEmulator() {
+            EmulatorJS.loadRom({
+                // Path to your ROM file
+                romUrl: '/Users/nando/Documents/data/mario1.nes',
+                // Optional: Path to a specific emulator core (leave empty for auto-detect)
+                core: '',
+                // Optional: Canvas container element ID
+                canvasId: 'emulator-container',
+                // Optional: Callback when the emulator is loaded
+                onLoad: function() {
+                    console.log('Emulator loaded successfully');
+                }
+            });
+        }
+
+        // Load the emulator when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', loadEmulator);
+    </script>
+</body>
+</html>
